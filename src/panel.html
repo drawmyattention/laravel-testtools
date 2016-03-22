@@ -48,13 +48,17 @@
         <code id="testcode" class="hljs php"></code>
       </pre>
       <code id="steps" style="display:none;">
+<?php
+
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 class ExampleTest extends TestCase
 {
 %FAKER%
-    /**
-     * My test implementation
-     */
-    public function test%TESTNAME%()
+    /** @test */
+    public function _%TESTNAME%()
     {
 <template v-for="step in steps">
   <template v-if="! step.faker">{{indent}}$this->{{ step.method }}({{ step.args | implode }});<template v-if="$index+1 < steps.length">{{linebreak}}</template></template><template v-else>{{indent}}$this->{{ step.method }}({{ step.args | implode true }});<template v-if="$index+1 < steps.length">{{linebreak}}</template></template>
